@@ -12,7 +12,7 @@ import Vue from 'vue'
 export default Vue.extend({})
 </script>
 
-<style>
+<style lang="postcss">
 .container {
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
