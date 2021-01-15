@@ -1,15 +1,26 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">zone.dance</h1>
-    </div>
+    <GradientBar v-bind="{ width, height, stops }" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data() {
+    return {
+      height: 100,
+      width: 300,
+      stops: [
+        [0, 'red'],
+        [45, 'red'],
+        [55, 'blue'],
+        [100, 'blue'],
+      ],
+    }
+  },
+})
 </script>
 
 <style lang="postcss">
