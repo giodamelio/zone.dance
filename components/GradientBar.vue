@@ -8,7 +8,14 @@
         :stop-color="stop.color"
       />
     </linearGradient>
-    <rect x="0" y="0" :width="width" :height="height" fill="url(#gradient)" />
+    <rect
+      x="0"
+      y="0"
+      :width="width"
+      :height="height"
+      :rx="radius"
+      fill="url(#gradient)"
+    />
   </svg>
 </template>
 
@@ -26,6 +33,10 @@ export default Vue.extend({
     height: {
       type: Number,
       required: true,
+    },
+    radius: {
+      type: Number,
+      default: 0,
     },
     stops: {
       type: Array as () => Stop[],
