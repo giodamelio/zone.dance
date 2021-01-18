@@ -3,7 +3,7 @@ type State = {
 }
 
 export const state: Function = () => ({
-  zones: ['aaa', 'bbb'],
+  zones: ['America/Chicago', 'America/Phoenix'],
 })
 
 export const mutations = {

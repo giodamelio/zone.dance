@@ -12,7 +12,25 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapMutations } from 'vuex'
+import { mapMutations, Store } from 'vuex'
+import Tweakpane from 'tweakpane'
+
+// Simple Debugging pane
+const store: Store<any> = global.__VUE_DEVTOOLS_GLOBAL_HOOK__.store
+const pane = new Tweakpane()
+const PARAMS = {
+  zonesCount: store.state.zones.length,
+}
+pane.addMonitor(PARAMS, 'zonesCount')
+store.subscribe((_mutation, state) => {
+  PARAMS.zonesCount = state.zones.length
+})
+const addLA = pane.addButton({
+  title: 'Add "America/Los_Angeles" zone',
+})
+addLA.on('click', () => {
+  store.commit('add', 'America/Los_Angeles')
+})
 
 interface InputEvent extends KeyboardEvent {
   target: HTMLInputElement
