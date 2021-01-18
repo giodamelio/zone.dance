@@ -1,24 +1,35 @@
 <template>
   <div class="container">
-    <GradientBar v-bind="{ width, height, stops }" />
+    <input placeholder="Add a zone" @keyup.enter="add" />
+    <ul>
+      <li v-for="(zone, index) in zones" :key="index">
+        {{ zone }}
+        <button @click="remove(index)">x</button>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapMutations } from 'vuex'
+
+interface InputEvent extends KeyboardEvent {
+  target: HTMLInputElement
+}
 
 export default Vue.extend({
-  data() {
-    return {
-      height: 100,
-      width: 300,
-      stops: [
-        [0, 'red'],
-        [45, 'red'],
-        [55, 'blue'],
-        [100, 'blue'],
-      ],
-    }
+  computed: {
+    zones() {
+      return this.$store.state.zones
+    },
+  },
+  methods: {
+    ...mapMutations(['add', 'remove']),
+    add(event: InputEvent) {
+      this.$store.commit('add', event.target.value)
+      event.target.value = ''
+    },
   },
 })
 </script>
