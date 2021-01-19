@@ -5,15 +5,13 @@
 			"type": "npm",
 			"script": "dev",
 			"problemMatcher": [],
-			"label": "npm: dev",
-			"detail": "nuxt-ts"
+			"label": "npm: dev"
 		},
 		{
 			"type": "npm",
-			"script": "storybook",
+			"script": "build",
 			"problemMatcher": [],
-			"label": "npm: storybook",
-			"detail": "nuxt-ts storybook"
+			"label": "npm: build"
 		}
 	]
 }
