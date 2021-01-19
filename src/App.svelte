@@ -1,12 +1,12 @@
 <script lang="ts">
-	export let name: string;
+	export let name: string = "HAHA";
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
 	<p>
-		Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
-		how to build Svelte apps.
+		There is nothing here right now, but you should check back every day to make
+		sure!
 	</p>
 </main>
 
