@@ -12,6 +12,12 @@
 			"script": "build",
 			"problemMatcher": [],
 			"label": "npm: build"
+		},
+		{
+			"type": "npm",
+			"script": "storybook",
+			"problemMatcher": [],
+			"label": "npm: storybook"
 		}
 	]
 }
