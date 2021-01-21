@@ -3,6 +3,11 @@
   import CurrentDateTime from './components/CurrentDateTime.svelte';
 </script>
 
+<svelte:head>
+  <!-- Will be replaced by Rollup via `@rollup/plugin-replace` -->
+  <title>__site_title__</title>
+</svelte:head>
+
 <main>
   <h1>Zone Dance</h1>
 

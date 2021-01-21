@@ -6,8 +6,11 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
+import replace from '@rollup/plugin-replace';
+import gitRevSync from 'git-rev-sync';
 
 const production = !process.env.ROLLUP_WATCH;
+const gitString = `${gitRevSync.branch()}, ${gitRevSync.short()}`;
 
 function serve() {
 	let server;
@@ -39,6 +42,11 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+		// In dev mode, add branch name and commit shorthash to the title
+		replace({
+			__site_title__: production ? 'Zone Dance': `Zone Dance (${gitString})`,
+		}),
+
 		svelte({
 			preprocess: sveltePreprocess(),
 			compilerOptions: {
