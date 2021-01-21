@@ -7,14 +7,8 @@
 
 <main>
   <DebugPane>
-    <DebugButton
-      title="Increment"
-      on:click={() => count.update((n) => n + 1)}
-    />
-    <DebugButton
-      title="Decrement"
-      on:click={() => count.update((n) => n - 1)}
-    />
+    <DebugButton title="Increment" on:click={count.increment} />
+    <DebugButton title="Decrement" on:click={count.decrement} />
   </DebugPane>
 
   <h1>Hello {name}!</h1>
@@ -25,8 +19,8 @@
   </p>
 
   <p>The current count is at: {$count}</p>
-  <button on:click={() => count.update((n) => n + 1)}>+</button>
-  <button on:click={() => count.update((n) => n - 1)}>-</button>
+  <button on:click={count.increment}>+</button>
+  <button on:click={count.decrement}>-</button>
 </main>
 
 <style>
