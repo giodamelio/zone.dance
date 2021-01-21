@@ -11,7 +11,7 @@ import gitRevSync from 'git-rev-sync';
 
 const production = !process.env.ROLLUP_WATCH;
 const netlifyContext = process.env.CONTEXT || 'production';
-const gitString = `${gitRevSync.branch()}, ${gitRevSync.short()}`;
+const gitString = `${process.env.BRANCH || gitRevSync.branch()}, ${gitRevSync.short()}`;
 
 function serve() {
 	let server;
