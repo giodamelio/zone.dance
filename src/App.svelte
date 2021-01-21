@@ -1,10 +1,22 @@
 <script lang="ts">
+  import DebugPane, { DebugButton } from './debug-pane';
   import { count } from './stores';
 
   export let name: string = 'HAHA';
 </script>
 
 <main>
+  <DebugPane>
+    <DebugButton
+      title="Increment"
+      on:click={() => count.update((n) => n + 1)}
+    />
+    <DebugButton
+      title="Decrement"
+      on:click={() => count.update((n) => n - 1)}
+    />
+  </DebugPane>
+
   <h1>Hello {name}!</h1>
 
   <p>
