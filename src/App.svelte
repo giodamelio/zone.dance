@@ -1,5 +1,5 @@
 <script lang="ts">
-  import DebugPane, { DebugButton } from './debug-pane';
+  import DebugPane, { DebugButton, DebugMonitor } from './debug-pane';
   import { count } from './stores';
 
   export let name: string = 'HAHA';
@@ -9,6 +9,7 @@
   <DebugPane>
     <DebugButton title="Increment" on:click={count.increment} />
     <DebugButton title="Decrement" on:click={count.decrement} />
+    <DebugMonitor title="Count" value={count} />
   </DebugPane>
 
   <h1>Hello {name}!</h1>
