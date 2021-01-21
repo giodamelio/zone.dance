@@ -9,7 +9,7 @@
 </svelte:head>
 
 <main>
-  <h1>Zone Dance</h1>
+  <h1>Zone Dance (Under construction)</h1>
 
   <ul>
     {#each $zones as zone}
