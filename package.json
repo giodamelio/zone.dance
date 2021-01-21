@@ -20,6 +20,7 @@
     "@storybook/addon-essentials": "^6.1.14",
     "@storybook/addon-links": "^6.1.14",
     "@storybook/svelte": "^6.1.14",
+    "@types/luxon": "^1.25.1",
     "babel-loader": "^8.2.2",
     "husky": "^5.0.6",
     "prettier": "^2.2.1",
@@ -37,6 +38,7 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
+    "luxon": "^1.25.0",
     "sirv-cli": "^1.0.0"
   },
   "postinstall": "husky install"

@@ -1,27 +1,18 @@
 <script lang="ts">
-  import DebugPane, { DebugButton, DebugMonitor } from './debug-pane';
-  import { count } from './stores';
-
-  export let name: string = 'HAHA';
+  import { zones } from './stores';
+  import CurrentDateTime from './components/CurrentDateTime.svelte';
 </script>
 
 <main>
-  <DebugPane>
-    <DebugButton title="Increment" on:click={count.increment} />
-    <DebugButton title="Decrement" on:click={count.decrement} />
-    <DebugMonitor title="Count" value={count} />
-  </DebugPane>
+  <h1>Zone Dance</h1>
 
-  <h1>Hello {name}!</h1>
-
-  <p>
-    There is nothing here right now, but you should check back every day to make
-    sure!
-  </p>
-
-  <p>The current count is at: {$count}</p>
-  <button on:click={count.increment}>+</button>
-  <button on:click={count.decrement}>-</button>
+  <ul>
+    {#each $zones as zone}
+      <li>
+        {zone.name}: {zone.zone.name} = <CurrentDateTime zone={zone.zone} />
+      </li>
+    {/each}
+  </ul>
 </main>
 
 <style>

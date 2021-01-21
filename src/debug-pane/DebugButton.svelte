@@ -7,4 +7,12 @@
 </div>
 
 <style>
+  .container > button {
+    outline: none;
+    color: var(--platinum);
+    background-color: var(--oxford-blue);
+    border: 2px solid var(--platinum);
+    cursor: grab;
+    margin: 0;
+  }
 </style>
