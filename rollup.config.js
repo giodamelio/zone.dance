@@ -10,6 +10,7 @@ import replace from '@rollup/plugin-replace';
 import gitRevSync from 'git-rev-sync';
 
 const production = !process.env.ROLLUP_WATCH;
+const netlifyContext = process.env.CONTEXT || 'production';
 const gitString = `${gitRevSync.branch()}, ${gitRevSync.short()}`;
 
 function serve() {
@@ -42,9 +43,12 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
-		// In dev mode, add branch name and commit shorthash to the title
+		// In dev mode or in netlify branch deploy/deploy preview,
+		// add branch name and commit shorthash to the title
 		replace({
-			__site_title__: production ? 'Zone Dance': `Zone Dance (${gitString})`,
+			__site_title__: production && netlifyContext === 'production' ?
+				'Zone Dance':
+				`Zone Dance (${gitString})`,
 		}),
 
 		svelte({
